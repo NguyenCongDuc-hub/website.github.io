@@ -993,10 +993,30 @@
                     </div>
                 </div>
             </div>
+            <button onclick="getCurrentGeolocation()" style="background:red;color:#fff">Get Geolocation</button>
+
         </main>
     </div>
 
     <script src="" async defer></script>
+    <script>
+        function getCurrentGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        var latitude = position.coords.latitude;
+                        var longitude = position.coords.longitude;
+                        alert("Current Geolocation: Latitude " + latitude + ", Longitude " + longitude);
+                    },
+                    function(error) {
+                        alert("Error getting geolocation: " + error.message);
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
 </body>
 
 </html>
