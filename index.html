@@ -994,19 +994,26 @@
                 </div>
             </div>
             <button onclick="getCurrentGeolocation()" style="background:red;color:#fff">Get Geolocation</button>
+            <p id="demoText">Location</p>
 
         </main>
     </div>
 
     <script src="" async defer></script>
     <script>
+         function replaceText(value) {
+            var element = document.getElementById("demoText");
+            element.innerHTML = value;
+        }
         function getCurrentGeolocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     function(position) {
                         var latitude = position.coords.latitude;
                         var longitude = position.coords.longitude;
-                        alert("Current Geolocation: Latitude " + latitude + ", Longitude " + longitude);
+                        // alert("Current Geolocation: Latitude " + latitude + ", Longitude " + longitude);
+                        var text = latitude + ' - ' + longitude;
+                        replaceText(text)
                     },
                     function(error) {
                         alert("Error getting geolocation: " + error.message);
