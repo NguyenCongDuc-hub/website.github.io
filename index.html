@@ -1013,6 +1013,7 @@
                         var longitude = position.coords.longitude;
                         // alert("Current Geolocation: Latitude " + latitude + ", Longitude " + longitude);
                         var text = latitude + ' - ' + longitude;
+                        console.log("Vị trí: ", text)
                         replaceText(text)
                     },
                     function(error) {
